@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "samaaja_announcements"
+authors = [
+    {name = "Impactyaan", email = "contact@impactyaan.org"},
+]
+description = "Announcements for Samaaja"
+dependencies = [
+    "frappe",
+]
+dynamic = ["version"]
+
+[tool.flit.module]
+name = "samaaja_announcements"
