@@ -6,7 +6,7 @@ def get_active_announcements():
 	now = frappe.utils.now_datetime()
 	
 	# Fetch all published announcements
-	announcements = frappe.get_all("Samaaja Announcement", 
+	announcements = frappe.get_all("Announcement", 
 		filters={"published": 1},
 		fields=["name", "title", "message", "url_link", "image", "valid_from", "valid_to", "target_audience", "total_views", "total_clicks"]
 	)
@@ -52,7 +52,7 @@ def get_unread_count():
 	else:
 		viewed_filters["ip_address"] = frappe.local.request.remote_addr if hasattr(frappe.local, "request") else "unknown"
 		
-	viewed_names = frappe.get_all("Samaaja Announcement Interaction", 
+	viewed_names = frappe.get_all("Announcement Interaction", 
 		filters=viewed_filters, 
 		pluck="announcement"
 	)
@@ -69,7 +69,7 @@ def record_interaction(announcement, interaction_type, contact_id=None):
 		frappe.throw(_("Invalid interaction type"))
 	
 	doc = frappe.get_doc({
-		"doctype": "Samaaja Announcement Interaction",
+		"doctype": "Announcement Interaction",
 		"announcement": announcement,
 		"interaction_type": interaction_type,
 		"user": frappe.session.user if frappe.session.user != "Guest" else None,

@@ -17,7 +17,7 @@
    "fieldname": "announcement",
    "fieldtype": "Link",
    "label": "Announcement",
-   "options": "Samaaja Announcement",
+   "options": "Announcement",
    "reqd": 1
   },
   {
@@ -48,8 +48,8 @@
  "links": [],
  "modified": "2026-05-09 12:00:00.000000",
  "modified_by": "Administrator",
- "module": "Samaaja Announcements",
- "name": "Samaaja Announcement Interaction",
+ "module": "Announcements",
+ "name": "Announcement Interaction",
  "owner": "Administrator",
  "permissions": [
   {

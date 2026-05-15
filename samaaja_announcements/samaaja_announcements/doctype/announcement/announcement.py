@@ -1,7 +1,7 @@
 import frappe
 from frappe.model.document import Document
 
-class SamaajaAnnouncement(Document):
+class Announcement(Document):
 	def before_insert(self):
 		# Fallback for API-created records: ensure at least one default channel exists if none provided
 		if not self.delivery_channels:

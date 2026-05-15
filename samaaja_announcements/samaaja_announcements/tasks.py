@@ -6,7 +6,7 @@ def process_announcements():
 	
 	# 1. Process Scheduled Publish
 	# Query for announcements that should be published but are not yet
-	scheduled = frappe.get_all("Samaaja Announcement", 
+	scheduled = frappe.get_all("Announcement", 
 		filters={
 			"published": 0,
 			"publish_on": ["<=", now]
@@ -15,7 +15,7 @@ def process_announcements():
 	)
 	
 	for s in scheduled:
-		doc = frappe.get_doc("Samaaja Announcement", s.name)
+		doc = frappe.get_doc("Announcement", s.name)
 		doc.published = 1
 		doc.valid_from = now # Ensure it shows up on frontend immediately
 		doc.save(ignore_permissions=True)
@@ -24,7 +24,7 @@ def process_announcements():
 
 	# 2. Process Recurring Announcements
 	# Query for published recurring announcements
-	recurring = frappe.get_all("Samaaja Announcement",
+	recurring = frappe.get_all("Announcement",
 		filters={
 			"published": 1,
 			"is_recurring": 1
@@ -57,7 +57,7 @@ def process_announcements():
 				should_send = True
 				
 		if should_send:
-			doc = frappe.get_doc("Samaaja Announcement", r.name)
+			doc = frappe.get_doc("Announcement", r.name)
 			deliver_announcement(doc)
 			doc.last_sent_on = now
 			doc.current_repeat_count = (doc.current_repeat_count or 0) + 1

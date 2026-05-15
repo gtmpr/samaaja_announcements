@@ -1,4 +1,4 @@
-frappe.ui.form.on('Samaaja Announcement', {
+frappe.ui.form.on('Announcement', {
 	onload: function(frm) {
 		// Automatically add "App Notification" as default if it's a new record and table is empty
 		if (frm.is_new() && (!frm.doc.delivery_channels || frm.doc.delivery_channels.length === 0)) {

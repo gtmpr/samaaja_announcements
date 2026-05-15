@@ -132,7 +132,7 @@
    "fieldname": "delivery_channels",
    "fieldtype": "Table",
    "label": "Delivery Channels",
-   "options": "Samaaja Announcement Channel"
+   "options": "Announcement Channel"
   },
   {
    "fieldname": "total_views",
@@ -151,8 +151,8 @@
  "links": [],
  "modified": "2026-05-13 10:00:00.000000",
  "modified_by": "Administrator",
- "module": "Samaaja Announcements",
- "name": "Samaaja Announcement",
+ "module": "Announcements",
+ "name": "Announcement",
  "owner": "Administrator",
  "permissions": [
   {
